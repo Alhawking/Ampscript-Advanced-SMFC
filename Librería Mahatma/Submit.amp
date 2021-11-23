@@ -1,5 +1,5 @@
 %%[
-    VAR @firstName,@lastName,@email,@result,@mensaje1,@subgeneros,@subgeneroActual,@checkBox
+    VAR @firstName,@lastName,@email,@result,@mensaje,@subgeneros,@subgeneroActual,@checkBox
     IF RequestParameter('enviado') == 'true' THEN
         SET @firstName = RequestParameter('firstName')
         SET @lastName = RequestParameter('lastName')
