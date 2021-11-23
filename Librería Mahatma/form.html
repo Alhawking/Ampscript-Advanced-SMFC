@@ -1,28 +1,4 @@
-<script runat="server">
-    Platform.Load("Core", "1.1.1");
-    try {
-</script>%%[
-IF RequestParameter('Enviado') == 'true' THEN
-VAR @firstName,@lastName,@email
-SET @firstName = RequestParameter("firstName")
-SET @lastName = RequestParameter("lastName")
-SET @email = RequestParameter("email")
-SET @updated =
-UpdateData('Clientes2',3,'IdCliente',RequestParameter('_subscriberkey'),'Nombre',@firstName,'Apellido',@lastName,'Email',@email)
-Redirect('https://www.google.com/')
-ENDIF
-VAR @subscriber,@firstName,@lastName,@subscriberKey
-SET @subscriberKey = QueryParameter('_subscriberkey')/*Para obtener el subskey se usa AttributeValue*/
-SET @subscriber = LookUpRows('Clientes2','IdCliente',@subscriberKey)
-SET @firstName = Field(Row(@subscriber,1),'Nombre')
-SET @lastName = Field(Row(@subscriber,1),'Apellido')
-SET @email = Field(Row(@subscriber,1),'Email')
-]%%
-<script runat="server">
-    } catch (e) {
-        Write(Stringify(e));
-    }
-</script>
+%%=TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/AMPscript.amp'))=%%
 <!DOCTYPE html>
 <html lang="es">
 
@@ -55,8 +31,6 @@ SET @email = Field(Row(@subscriber,1),'Email')
             <div class="my-4 row">
                 %%=TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/Subgeneros.amp'))=%%
             </div>
-            <input type="hidden" name="Enviado" value="true" />
-            <input type="hidden" name="_subscriberkey" value="%%=v(@subscriberKey)=%%" />
             <button type="submit" class="btn btn-primary mt-3 w-50">Submit</button>
         </form>
     </div>
