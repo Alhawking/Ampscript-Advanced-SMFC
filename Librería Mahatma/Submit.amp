@@ -8,12 +8,12 @@
         SET @subgeneros = LookUpRows('Subgéneros','Get DE',1)
         FOR @counter = 1 TO RowCount(@subgeneros) DO
             SET @subgeneroActual = LookUpRows('Subgéneros','IdSubgénero',Field(Row(@subgeneros,@counter),'IdSubgénero'))
-            SET @checkBox = RequestParameter(@subgeneroActual)
             SET @id = Field(Row(@subgeneroActual,1),'IdSubgénero')
+            SET @checkBox = RequestParameter(@id)
             SET @coincidencias = LookUpRows('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)
-            IF NOT Empty(@checkBox) THEN
+            IF NOT Empty(@checkBox) AND RowCount(@coincidencias) == 0 THEN
                 InsertData('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)
-            ELSEIF empty(@checkBox) AND @coincidencias > 0 THEN
+            ELSEIF empty(@checkBox) AND RowCount(@coincidencias) > 0 THEN
                 DeleteData('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)            
             ENDIF
         NEXT
