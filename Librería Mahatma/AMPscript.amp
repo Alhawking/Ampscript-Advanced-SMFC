@@ -4,5 +4,5 @@
     SET @subscriber = LookUpRows('Clientes2','IdCliente',@subscriberKey)
     SET @firstName = Field(Row(@subscriber,1),'Nombre')
     SET @lastName = Field(Row(@subscriber,1),'Apellido')
-    SET @email = AttributeValue('emailaddr')
+    SET @email = Field(Row(@subscriber,1),'Email')
 ]%%
