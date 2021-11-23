@@ -29,18 +29,18 @@ SET @email = Field(Row(@subscriber,1),'Email')
 <body>
     <h2 class="p-4 text-center">Centro de preferencias</h2>
     <div class="container">
-        <form class="row p-3 justify-content-center">
+        <form class="row p-3 justify-content-center" method="POST">
             <div class="col-12 col-sm-6 col-md-4 col-xxl-3">
                 <label for="firstName" class="form-label">Nombre(s)</label>
-                <input type="text" class="form-control" id="firstName" value="%%=v(@firstName)=%%" readonly>
+                <input type="text" class="form-control" id="firstName" value="%%=v(@firstName)=%%">
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-xxl-3">
                 <label for="lastName" class="form-label">Apellido Paterno</label>
-                <input type="text" class="form-control" id="lastName" value="%%=v(@lastName)=%%" readonly>
+                <input type="text" class="form-control" id="lastName" value="%%=v(@lastName)=%%">
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-xxl-3">
                 <label for="Email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="Email" value="%%=v(@email)=%%" readonly>
+                <input type="email" class="form-control" id="Email" value="%%=v(@email)=%%">
             </div>
             <h3 class="mt-4">Subgéneros</h3>
             <div class="my-4 row">
