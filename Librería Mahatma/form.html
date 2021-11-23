@@ -2,6 +2,15 @@
     Platform.Load("Core", "1.1.1");
     try {
 </script>%%[
+IF RequestParameter('Enviado') == 'true' THEN
+VAR @firstName,@lastName,@email
+SET @firstName = RequestParameter("firstName")
+SET @lastName = RequestParameter("lastName")
+SET @email = RequestParameter("email")
+UpdateData('Clientes2',3,'IdCliente',
+QueryParameter('_subscriberkey'),'Nombre',@firstName,'Apellido',@lastName,'Email',@email)
+Redirect('https://www.google.com/')
+ENDIF
 VAR @subscriber,@firstName,@lastName,@subscriberKey
 SET @subscriberKey = QueryParameter('_subscriberkey')/*Para obtener el subskey se usa AttributeValue*/
 SET @subscriber = LookUpRows('Clientes2','IdCliente',@subscriberKey)
@@ -32,20 +41,21 @@ SET @email = Field(Row(@subscriber,1),'Email')
         <form class="row p-3 justify-content-center" method="POST">
             <div class="col-12 col-sm-6 col-md-4 col-xxl-3">
                 <label for="firstName" class="form-label">Nombre(s)</label>
-                <input type="text" class="form-control" id="firstName" value="%%=v(@firstName)=%%">
+                <input type="text" class="form-control" id="firstName" value="%%=v(@firstName)=%%" name="firstName">
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-xxl-3">
                 <label for="lastName" class="form-label">Apellido Paterno</label>
-                <input type="text" class="form-control" id="lastName" value="%%=v(@lastName)=%%">
+                <input type="text" class="form-control" id="lastName" value="%%=v(@lastName)=%%" name="lastName">
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-xxl-3">
                 <label for="Email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="Email" value="%%=v(@email)=%%">
+                <input type="email" class="form-control" id="Email" value="%%=v(@email)=%%" name="email">
             </div>
             <h3 class="mt-4">Subgéneros</h3>
             <div class="my-4 row">
                 %%=TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/Subgeneros.amp'))=%%
             </div>
+            <input type="hidden" name="Enviado" value="true" />
             <button type="submit" class="btn btn-primary mt-3 w-50">Submit</button>
         </form>
     </div>

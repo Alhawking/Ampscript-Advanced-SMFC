@@ -1,0 +1,9 @@
+%%[
+    IF RequestParameter('Enviado') == 'true' THEN
+        VAR @firstName,@lastName,@email
+        SET @firstName = RequestParameter("firstName")
+        SET @lastName = RequestParameter("lastName")
+        SET @email = RequestParameter("email")
+        UpdateData('Clientes2',3,'IdCliente', QueryParameter('_subscriberkey'),'Nombre',@firstName,'Apellido',@lastName,'Email',@email)
+    ENDIF
+]%%
