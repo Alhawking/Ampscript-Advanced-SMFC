@@ -14,8 +14,10 @@
             SET @coincidencias = LookUpRows('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)
             IF NOT Empty(@checkBox) AND @coincidencias == 0 THEN
                 InsertData('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)
+                set @mensaje1 = 'Pasa 1'
             ELSEIF empty(@checkBox) AND @coincidencias > 0 THEN
                 DeleteData('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)            
+                set @mensaje2 = 'Pasa 2'
             ENDIF
         NEXT
         IF @result > 0 THEN
