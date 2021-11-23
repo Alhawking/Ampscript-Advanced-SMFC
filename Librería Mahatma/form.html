@@ -2,7 +2,7 @@
     try {
 </script>
 %%[
-IF RequestParameter('enviado') = 'true' THEN
+IF RequestParameter('enviado') == 'true' THEN
 VAR @firstName,@lastName,@email,@subscriberkey,@result
 SET @firstName = RequestParameter('firstName')
 SET @lastName = RequestParameter('lastName')
