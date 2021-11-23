@@ -1,5 +1,5 @@
 %%[
-    VAR @firstName,@lastName,@email,@result,@mensaje1,@subgeneros,@subgeneroActual,@checkBox
+    VAR @firstName,@lastName,@email,@result,@mensaje,@subgeneros,@subgeneroActual,@checkBox
     IF RequestParameter('enviado') == 'true' THEN
         SET @firstName = RequestParameter('firstName')
         SET @lastName = RequestParameter('lastName')
@@ -19,7 +19,7 @@
             ENDIF
         NEXT */
         IF @result > 0 THEN
-            SET @mensaje1 = 'Datos actualizados correctamente'
+            SET @mensaje = 'Datos actualizados correctamente'
         ENDIF
     ENDIF
 ]%%
