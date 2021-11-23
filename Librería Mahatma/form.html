@@ -43,23 +43,7 @@ SET @email = Field(Row(@subscriber,1),'Email')
                 <input type="email" class="form-control" id="Email" value="%%=v(@email)=%%" readonly>
             </div>
             <h3>Subgéneros</h3>
-            <div class="row">
-                %%[
-                VAR @subgeneros,@subgeneroActual,@nombre
-                SET @subgeneros = LookUpRows('SubgénerosPorCliente','IdCliente',@subscriberKey)
-                FOR @counter = 1 TO RowCount(@subgeneros) DO
-                SET @subgeneroActual =
-                LookUpRows('Subgéneros','IdSubgénero',Field(Row(@subgeneros,@counter),'IdSubgénero'))
-                SET @nombre = Field(Row(@subgeneroActual,@counter),'NombreSubgénero')
-                ]%%
-                <div class="col-12 col-sm-6 col-md-4 col-xxl-3">
-                    <input class="form-check-input" type="checkbox" value="" id="check-%%=v(@nombre)=%%">
-                    <label class="form-check-label" for="check-%%=v(@nombre)=%%">
-                        %%=v(@nombre)=%%
-                    </label>
-                </div>
-                %%[NEXT]%%
-            </div>
+            %%=TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/Subgeneros.amp'))=%%
             <button type="submit" class="btn btn-primary mt-3 w-50">Submit</button>
         </form>
     </div>

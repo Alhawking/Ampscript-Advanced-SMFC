@@ -1,9 +1,9 @@
 %%[
-    VAR @subgeneros,@subgeneroActual,@nombre
+    /*VAR @subgeneros,@subgeneroActual,@nombre
     SET @subgeneros = LookUpRows('SubgénerosPorCliente','IdCliente',@subscriberKey)
     FOR @counter = 1 TO RowCount(@subgeneros) DO
     SET @subgeneroActual = LookUpRows('Subgéneros','IdSubgénero',Field(Row(@subgeneros,@counter),'IdSubgénero'))
-    SET @nombre = Field(Row(@subgeneroActual,@counter),'NombreSubgénero')
+    SET @nombre = Field(Row(@subgeneroActual,@counter),'NombreSubgénero')*/
     ]%%
         <div class="col-12 col-sm-6 col-md-4 col-xxl-3">
             <input class="form-check-input" type="checkbox" value="" id="check-%%=v(@nombre)=%%">
@@ -11,4 +11,3 @@
                 %%=v(@nombre)=%%
             </label>
         </div>
-    %%[NEXT]%%
