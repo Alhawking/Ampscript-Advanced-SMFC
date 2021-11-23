@@ -13,7 +13,7 @@
             SET @coincidencias = LookUpRows('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)
             IF NOT Empty(@checkBox) AND RowCount(@coincidencias) == 0 THEN
                 InsertData('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)
-            ELSEIF empty(@checkBox) AND RowCount(@coincidencias) > 0 THEN
+            ELSEIF NOT empty(@checkBox) AND RowCount(@coincidencias) > 0 THEN
                 DeleteData('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)            
             ENDIF
         NEXT
