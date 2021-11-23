@@ -1,4 +1,13 @@
+<script runat="server">
+    Platform.Load("Core", "1.1.1");
+    try {
+</script>
 %%=TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Rey%20Toot%202/Submit.amp'))=%%
+<script runat="server">
+    } catch (e) {
+        Write(Stringify(e));
+    }
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
