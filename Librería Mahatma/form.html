@@ -1,22 +1,4 @@
-<script runat="server">
-    try {
-</script>
-%%[
-IF RequestParameter('enviado') == 'true' THEN
-/*VAR @firstName,@lastName,@email,@subscriberkey,@result*/
-SET @firstName = RequestParameter('firstName')
-SET @lastName = RequestParameter('lastName')
-SET @email = RequestParameter('email')
-SET @subscriberkey = QueryParameter('_subscriberkey')
-SET @result =
-UpdateData('Clientes2',1,'IdCliente',@subscriberKey,'Nombre',@firstName,'Apellido',@lastName,'Email',@email)
-ENDIF
-]%%
-<script runat="server">
-    } catch (e) {
-        Write(Stringify(e));
-    }
-</script>
+%%=TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/Submit.amp'))=%%
 %%=TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/AMPscript.amp'))=%%
 <!DOCTYPE html>
 <html lang="es">
