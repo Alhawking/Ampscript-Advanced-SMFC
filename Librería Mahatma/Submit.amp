@@ -17,8 +17,6 @@
             ELSE
             ENDIF
         NEXT
-        IF @result > 0 THEN
             SET @mensaje1 = 'Datos actualizados correctamente'
-        ENDIF
     ENDIF
 ]%%
