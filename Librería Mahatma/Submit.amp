@@ -5,6 +5,6 @@
         SET @email = RequestParameter('email')
         SET @subscriberkey = QueryParameter('_subscriberkey')
         SET @result = UpdateData('Clientes2',1,'IdCliente',@subscriberKey,'Nombre',@firstName,'Apellido',@lastName,'Email',@email)
-        /*SET @mensaje = 'Datos actualizados correctamente'*/
+        SET @mensaje = 'Datos actualizados correctamente'
     ENDIF
 ]%%
