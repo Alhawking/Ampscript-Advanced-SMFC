@@ -20,6 +20,6 @@
             ENDIF
         NEXT
         SET @mensaje = 'Datos actualizados correctamente'
-        Redirect(CloudPagesURL(724,'_subscriberkey',@subscriberKey,'success','true'))
+        Redirect(CloudPagesURL(724,'_subscriberkey',@subscriberKey))
     ENDIF
 ]%%
