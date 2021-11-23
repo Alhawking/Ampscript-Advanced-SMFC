@@ -19,8 +19,7 @@
                 DeleteData('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)            
             ENDIF
         NEXT
-        IF @result > 0 THEN
-            SET @mensaje = 'Datos actualizados correctamente'
-        ENDIF
+        SET @mensaje = 'Datos actualizados correctamente'
+        TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/AMPscript.amp'))
     ENDIF
 ]%%
