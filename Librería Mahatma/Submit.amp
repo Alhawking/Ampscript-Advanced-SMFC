@@ -5,8 +5,8 @@
         SET @lastName = RequestParameter('lastName')
         SET @email = RequestParameter('email')
         SET @subscriberkey = QueryParameter('_subscriberkey')
-        /* SET @result = UpdateData('Clientes2',1,'IdCliente',@subscriberKey,'Nombre',@firstName,'Apellido',@lastName,'Email',@email)
-        SET @subgeneros = LookUpRows('Subgéneros','Get DE',1)
+        SET @result = UpdateData('Clientes2',1,'IdCliente',@subscriberKey,'Nombre',@firstName,'Apellido',@lastName,'Email',@email)
+        /*SET @subgeneros = LookUpRows('Subgéneros','Get DE',1)
         FOR @counter = 1 TO RowCount(@subgeneros) DO
             SET @subgeneroActual = LookUpRows('Subgéneros','IdSubgénero',Field(Row(@subgeneros,@counter),'IdSubgénero'))
             SET @checkBox = RequestParameter(@subgeneroActual)
