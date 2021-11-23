@@ -7,7 +7,7 @@ SET @subscriberKey = QueryParameter('_subscriberkey')/*Para obtener el subskey s
 SET @subscriber = LookUpRows('Clientes2','IdCliente',@subscriberKey)
 SET @firstName = Field(Row(@subscriber,1),'Nombre')
 SET @lastName = Field(Row(@subscriber,1),'Apellido')
-SET @email = AttributeValue('emailaddr')
+SET @email = Field(Row(@subscriber,1),'Email')
 ]%%
 <script runat="server">
     } catch (e) {
@@ -43,6 +43,23 @@ SET @email = AttributeValue('emailaddr')
                 <input type="email" class="form-control" id="Email" value="%%=v(@email)=%%" readonly>
             </div>
             <h3>Subgéneros</h3>
+            <div class="row">
+                %%[
+                VAR @subgeneros,@subgeneroActual,@nombre
+                SET @subgeneros = LookUpRows('SubgénerosPorCliente','IdCliente',@subscriberKey)
+                FOR @counter = 1 TO RowCount(@subgeneros) DO
+                SET @subgeneroActual =
+                LookUpRows('Subgéneros','IdSubgénero',Field(Row(@subgeneros,@counter),'IdSubgénero'))
+                SET @nombre = Field(Row(@subgeneroActual,@counter),'NombreSubgénero')
+                ]%%
+                <div class="col-12 col-sm-6 col-md-4 col-xxl-3">
+                    <input class="form-check-input" type="checkbox" value="" id="check-%%=v(@nombre)=%%">
+                    <label class="form-check-label" for="check-%%=v(@nombre)=%%">
+                        %%=v(@nombre)=%%
+                    </label>
+                </div>
+                %%[NEXT]%%
+            </div>
             <button type="submit" class="btn btn-primary mt-3 w-50">Submit</button>
         </form>
     </div>
