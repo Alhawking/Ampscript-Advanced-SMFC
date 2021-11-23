@@ -17,6 +17,6 @@
             '","client_secret":"',
             @clientSecret,
             '"}')
-        SET @request = HTTPPost(@authURL,'content-type','application/json',@payload,@response)
+        SET @request = HTTPPost(@authURL,'application/json',@payload,@response)
     ENDIF
 ]%%
