@@ -20,6 +20,6 @@
             ENDIF
         NEXT
         SET @mensaje = 'Datos actualizados correctamente'
-        TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/AMPscript.amp'))
+        Redirect(CloudPagesURL(724,'_subscriberkey',@subscriberKey))
     ENDIF
 ]%%
