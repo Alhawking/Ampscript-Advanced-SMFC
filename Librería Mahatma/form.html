@@ -42,8 +42,10 @@ SET @email = Field(Row(@subscriber,1),'Email')
                 <label for="Email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="Email" value="%%=v(@email)=%%" readonly>
             </div>
-            <h3>Subgéneros</h3>
-            %%=TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/Subgeneros.amp'))=%%
+            <h3 class="mt-4">Subgéneros</h3>
+            <div class="my-4">
+                %%=TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/Subgeneros.amp'))=%%
+            </div>
             <button type="submit" class="btn btn-primary mt-3 w-50">Submit</button>
         </form>
     </div>

@@ -6,7 +6,7 @@
         SET @nombre = Field(Row(@subgeneroActual,1),'NombreSubgénero')
     ]%%
         <div class="col-12 col-sm-6 col-md-4 col-xxl-3">
-            <input class="form-check-input" type="checkbox" value="" id="check-%%=v(@nombre)=%%">
+            <input class="form-check-input" type="checkbox" value="" id="check-%%=v(@nombre)=%%" checked>
             <label class="form-check-label" for="check-%%=v(@nombre)=%%" >
                 %%=v(@nombre)=%%
             </label>
