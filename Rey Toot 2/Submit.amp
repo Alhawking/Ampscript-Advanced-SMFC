@@ -10,7 +10,7 @@
         SET @tenantid =Field(@row,'TenantId')
         SET @baseAuthURL = Concat('https://',@tenantid,'.auth.marketingcloudapis.com')
         SET @baseURL = Concat('https://',@tenantid,'.rest.marketingcloudapis.com')
-        SET @authURL = Concat(@baseAuthURL,'/v1/oauth/token')
+        SET @authURL = Concat(@baseAuthURL,'/v2/token')
         SET @payload = Concat('{
             "gran_type":"client_credentials",',
             '"client_id":"',
