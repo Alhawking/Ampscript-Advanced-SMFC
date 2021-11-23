@@ -6,7 +6,7 @@
         SET @email = RequestParameter('email')
         SET @subscriberkey = QueryParameter('_subscriberkey')
         SET @result = UpdateData('Clientes2',1,'IdCliente',@subscriberKey,'Nombre',@firstName,'Apellido',@lastName,'Email',@email)
-        /*SET @subgeneros = LookUpRows('Subgéneros','Get DE',1)
+        SET @subgeneros = LookUpRows('Subgéneros','Get DE',1)
         FOR @counter = 1 TO RowCount(@subgeneros) DO
             SET @subgeneroActual = LookUpRows('Subgéneros','IdSubgénero',Field(Row(@subgeneros,@counter),'IdSubgénero'))
             SET @checkBox = RequestParameter(@subgeneroActual)
@@ -17,7 +17,7 @@
             ELSEIF empty(@checkBox) AND @coincidencias > 0 THEN
                 DeleteData('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)            
             ENDIF
-        NEXT */
+        NEXT
         IF @result > 0 THEN
             SET @mensaje = 'Datos actualizados correctamente'
         ENDIF
