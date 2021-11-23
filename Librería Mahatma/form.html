@@ -35,7 +35,7 @@
             <input value="true" type="hidden" name="enviado" />
             %%[IF NOT empty(@mensaje) OR QueryParameter('success') == 'true' THEN]%%
             <div class="alert alert-success" role="alert">
-                <p>%%=v(@mensaje)=%%</p>
+                <p>Datos actualizados correctamente</p>
             </div>
             %%[ENDIF]%%
             <button type="submit" class="btn btn-primary mt-3 w-50">Guardar</button>

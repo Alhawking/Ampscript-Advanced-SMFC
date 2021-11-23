@@ -19,7 +19,6 @@
                 DeleteData('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)            
             ENDIF
         NEXT
-        SET @mensaje = 'Datos actualizados correctamente'
         Redirect(CloudPagesURL(724,'_subscriberkey',@subscriberKey,'success','true'))
     ENDIF
 ]%%
