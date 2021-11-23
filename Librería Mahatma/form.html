@@ -1,13 +1,4 @@
-<script runat="server">
-    Platform.Load("Core", "1.1.1");
-    try {
-</script>
-%%[TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/Submit.amp'))]%%
-<script runat="server">
-    } catch (e) {
-        Write(Stringify(e));
-    }
-</script>
+%%=TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/Submit.amp'))=%%
 %%=TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/AMPscript.amp'))=%%
 <!DOCTYPE html>
 <html lang="es">
