@@ -5,8 +5,8 @@
         SET @email = RequestParameter('email')
         SET @subscriberkey = QueryParameter('_subscriberkey')
         SET @result = UpdateData('Clientes2',1,'IdCliente',@subscriberKey,'Nombre',@firstName,'Apellido',@lastName,'Email',@email)
-        /*IF @result == 1 THEN
+        IF @result > 0 THEN
             SET @mensaje = 'Datos actualizados correctamente'
-        ENDIF*/
+        ENDIF
     ENDIF
 ]%%
