@@ -1,11 +1,11 @@
 %%[
-    VAR @firstName,@lastName,@email,@result,@mensaje,@subgeneros,@subgeneroActual,@checkBox
+    VAR @firstName,@lastName,@email,@result,@mensaje1,@subgeneros,@subgeneroActual,@checkBox
     IF RequestParameter('enviado') == 'true' THEN
         SET @firstName = RequestParameter('firstName')
         SET @lastName = RequestParameter('lastName')
         SET @email = RequestParameter('email')
         SET @subscriberkey = QueryParameter('_subscriberkey')
-        SET @result = UpdateData('Clientes2',1,'IdCliente',@subscriberKey,'Nombre',@firstName,'Apellido',@lastName,'Email',@email)
+        /* SET @result = UpdateData('Clientes2',1,'IdCliente',@subscriberKey,'Nombre',@firstName,'Apellido',@lastName,'Email',@email)
         SET @subgeneros = LookUpRows('Subgéneros','Get DE',1)
         FOR @counter = 1 TO RowCount(@subgeneros) DO
             SET @subgeneroActual = LookUpRows('Subgéneros','IdSubgénero',Field(Row(@subgeneros,@counter),'IdSubgénero'))
@@ -14,9 +14,12 @@
             SET @coincidencias = LookUpRows('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)
             IF NOT Empty(@checkBox) AND @coincidencias == 0 THEN
                 InsertData('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)
-            ELSE
+            ELSEIF empty(@checkBox) AND @coincidencias > 0 THEN
+                DeleteData('SubgénerosPorCliente','IdSubgénero',@id,'IdCliente',@subscriberKey)            
             ENDIF
-        NEXT
+        NEXT */
+        IF @result > 0 THEN
             SET @mensaje1 = 'Datos actualizados correctamente'
+        ENDIF
     ENDIF
 ]%%
