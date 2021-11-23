@@ -1,3 +1,22 @@
 %%[
-    
+    IF RequestParameter('Enviado') == 'true' THEN
+        SET @email = RequestParameter('email')
+        SET @firstName = RequestParameter('firstName')
+        SET @credenciales = LookUpRows('APIIntegration','Nombre','Nuevo Suscriptor')
+        SET @row = Row(@credenciales,1)
+        SET @clientId = Base64Decode(Field(@row,'ClientId'),'UTF-8')
+        SET @clientSecret = Base64Decode(Field(@row,'ClientSecret'),'UTF-8')
+        SET @tenantid =Field(@row,'TenantId')
+        SET @baseAuthURL = Concat('https://',@tenantid,'.auth.marketingcloudapis.com')
+        SET @baseURL = Concat('https://',@tenantid,'.rest.marketingcloudapis.com')
+        SET @authURL = Concat(@baseAuthURL,'/v1/oauth/token')
+        SET @payload = Concat('{
+            "gran_type":"client_credentials",',
+            '"client_id":"',
+            @clientId,
+            '","client_secret":"',
+            @clientSecret,
+            '"}')
+        SET @request = HTTPPost(@authURL,'content-type','application/json',@payload,@response)
+    ENDIF
 ]%%
