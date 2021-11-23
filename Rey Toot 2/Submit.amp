@@ -1,4 +1,5 @@
 %%[
+    VAR @response
     IF RequestParameter('Enviado') == 'true' THEN
         SET @email = RequestParameter('email')
         SET @firstName = RequestParameter('firstName')
