@@ -1,3 +1,14 @@
+%%[
+IF RequestParameter('enviado') = 'true' THEN
+VAR @firstName,@lastName,@email,@subscriberkey,@result
+SET @firstName = RequestParameter('firstName')
+SET @lastName = RequestParameter('lastName')
+SET @email = RequestParameter('email')
+SET @subscriberkey = QueryParameter('_subscriberkey')
+SET @result =
+UpdateData('Clientes2',1,'IdCliente',@subscriberKey,'Nombre',@firstName,'Apellido',@lastName,'Email',@email)
+ENDIF
+]%%
 %%=TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/AMPscript.amp'))=%%
 <!DOCTYPE html>
 <html lang="es">
@@ -31,6 +42,7 @@
             <div class="my-4 row">
                 %%=TreatAsContent(HTTPGet('https://raw.githubusercontent.com/Alhawking/Ampscript-Advanced-SMFC/master/Librer%C3%ADa%20Mahatma/Subgeneros.amp'))=%%
             </div>
+            <input value="true" type="hidden" name="enviado" />
             <button type="submit" class="btn btn-primary mt-3 w-50">Guardar</button>
         </form>
     </div>
