@@ -12,12 +12,12 @@
         SET @baseURL = Concat('https://',@tenantid,'.rest.marketingcloudapis.com')
         SET @authURL = Concat(@baseAuthURL,'/v2/token')
         SET @payload = Concat('{
-            "gran_type":"client_credentials",',
+            "grant_type":"client_credentials",',
             '"client_id":"',
             @clientId,
             '","client_secret":"',
             @clientSecret,
             '"}')
-        SET @request = HTTPPost('https://mc8jcbs17csh5mwmtvv9b1n4r6yq.auth.marketingcloudapis.com/v2/token','applicaton/json',@payload,@response) 
+        SET @request = HTTPPost('https://mc8jcbs17csh5mwmtvv9b1n4r6yq.auth.marketingcloudapis.com/v2/token','application/json',@payload,@response) 
     ENDIF
 ]%%
