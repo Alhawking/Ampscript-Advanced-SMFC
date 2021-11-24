@@ -28,3 +28,4 @@
         Variable.SetValue("@restInstance",responseJSON.rest_instance_url);
     </script>
     %%[ENDIF]%%
+    %%[ENDIF]%%
