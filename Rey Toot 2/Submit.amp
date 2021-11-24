@@ -27,5 +27,24 @@
         Variable.SetValue("@token",responseJSON.access_token);
         Variable.SetValue("@restInstance",responseJSON.rest_instance_url);
     </script>
-    %%[ENDIF]%%
-    %%[ENDIF]%%
+        %%[ENDIF]%%
+    %%[
+        set @payload = Concat('{
+            "From": {
+                "Address": "code@exacttarget.com",
+                "Name": "Code@"
+            },
+            "To": {
+                "Address": "example@example.com",
+                "SubscriberKey": "example@example.com",
+                "ContactAttributes": {
+                    "SubscriberAttributes": {
+                        "Region": "West",
+                        "City": "Indianapolis",
+                        "State": "IN"
+                    }
+                }
+            }
+            }')
+    ENDIF
+    ]%%
