@@ -44,8 +44,8 @@
                 }
             }
             }')
-            
-        SET @bearerToken = Concat('Bearer',@token)
+
+        SET @bearerToken = Concat('Bearer ',@token)
         SET @endpoint = Concat(@restInstance,'messaging/v1/messageDefinitionSends/key:9781/send')
         SET @request = HTTPPost(@endpoint,'application/json',@payload,@response,'Authorization',@bearerToken)
     ENDIF
