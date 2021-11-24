@@ -31,8 +31,8 @@
     %%[
         SET @payload = Concat('{
             "To": {
-                "Address": "alfredo@orangedcx.com",
-                "SubscriberKey": "alfredo@orangedcx.com",
+                "Address": "example@example.com",
+                "SubscriberKey": "example@example.com",
                 "ContactAttributes": {
                 "SubscriberAttributes": {
                 "FirstName": "Alfredo"
