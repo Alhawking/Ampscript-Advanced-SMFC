@@ -44,7 +44,7 @@
         SET @bearerToken = Concat('Bearer ',@token)
         SET @endpoint = Concat(@restInstance,'messaging/v1/messageDefinitionSends/key:9781/send')
         SET @request = HTTPPost(@endpoint,'application/json',@payload,@response,'Authorization',@bearerToken)
-        IF @request == "200" THEN
+        IF @request == "202" THEN
             Redirect(CloudPagesURL(734,'firstName',@firstName))
         ENDIF
     ENDIF
