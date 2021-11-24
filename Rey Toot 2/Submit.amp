@@ -19,5 +19,12 @@
             @clientSecret,
             '"}')
         SET @request = HTTPPost('https://mc8jcbs17csh5mwmtvv9b1n4r6yq.auth.marketingcloudapis.com/v2/token','application/json',@payload,@response) 
-    ENDIF
-]%%
+        IF @request == "200" THEN]%% 
+    <script runat="server">
+        Platform.Load("Core","1.1.1");
+        var response = Variable.GetValue("@response");
+        var responseJSON = Platform.Function.ParseJSON(response);
+        Variable.SetValue("@token",responseJSON.access_token);
+        Variable.SetValue("@restInstance",responseJSON.rest_instance_url);
+    </script>
+    %%[ENDIF]%%
