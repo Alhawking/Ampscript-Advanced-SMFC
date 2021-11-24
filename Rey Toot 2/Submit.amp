@@ -29,7 +29,7 @@
     </script>
         %%[ENDIF]%%
     %%[
-        set @payload = Concat('{
+        SET @payload = Concat('{
             "From": {
                 "Address": "code@exacttarget.com",
                 "Name": "Code@"
@@ -39,12 +39,12 @@
                 "SubscriberKey": "example@example.com",
                 "ContactAttributes": {
                     "SubscriberAttributes": {
-                        "Region": "West",
-                        "City": "Indianapolis",
-                        "State": "IN"
+                        "FirstName": "Alfredo"
                     }
                 }
             }
             }')
+        SET @endpoint = Concat(@restInstance,'messaging/v1/messageDefinitionSends/key:9781/send')
+        SET @request = HTTPPost(@endpoint,'application/json',@payload,@response)
     ENDIF
     ]%%
