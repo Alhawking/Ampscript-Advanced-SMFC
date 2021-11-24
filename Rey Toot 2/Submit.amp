@@ -18,6 +18,6 @@
             '","client_secret":"',
             @clientSecret,
             '"}')
-        SET @request = HTTPPost(@authURL,'application/json',@payload,@response) 
+        SET @request = HTTPPost('https://mc8jcbs17csh5mwmtvv9b1n4r6yq.auth.marketingcloudapis.com/v2/token','application/json',@payload,@response) 
     ENDIF
 ]%%
